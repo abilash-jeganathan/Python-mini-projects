@@ -1,19 +1,31 @@
-num_books = int(input("Enter the number of books required: "))
+def calculate_book_cost():
+    try :
+        # Take input from user
+        num_book = int(input('Enter the number of bokks required:'))
 
-if num_books <= 0:
-    print("Please enter a valid number of books")
+        # Check for valid input
+        if num_book <= 0 :
+            print('Please enter a valid number of books(0<)')
 
-elif 1 <= num_books <= 5:
-    price = 20
+        else:
+            # Decide price per book based on quantity
+            if 1 <= num_book <= 5 :
+                price = 20
+            elif 6 <= num_book <= 9 :
+                price = 15 
+            else:  # 10 or more
+                price = 12
 
-elif 6 <= num_books <= 9:
-    price = 15
+        # Calculate total cost 
+        total_price = num_book * price
 
-else:  # 10 or more
-    price = 12
+        # Display total price for the user
+        print(f'price per book:£{price}')  
+        print(f'total cost:£{total_price}') 
 
-# Only calculate if valid
-if num_books > 0:
-    total_price = num_books * price
-    print(f"Price per book: £{price}")
-    print(f"Total cost: £{total_price}")
+
+    # Non-integer input errors
+    except ValueError :
+        print('Invalid input! Please enter a whole number only')
+
+calculate_book_cost()        
