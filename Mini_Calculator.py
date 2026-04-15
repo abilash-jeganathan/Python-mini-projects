@@ -1,4 +1,5 @@
 def calculator():
+    history = []   # history of your calculation
     while True:
         try:
             num_1 = float(input("Enter the first number: "))
@@ -25,10 +26,19 @@ def calculator():
                 continue
 
             print(f"Result: {result}")
-
+            
+            # save your calculation 
+            calculation = f"{num_1} {operator} {num_2} = {result}"
+            history.append(calculation)
+            
         except ValueError:
             print("Invalid input! Please enter numbers only.")
 
+        # ask user to show history
+        history_choice = input("Do you want to see your calculation history? (y/n)").lower()
+        if history_choice == "y" :
+            print(history)
+            
         # Exit option
         choice = input("Do you want to continue? (y/n): ").lower()
         if choice != "y":
