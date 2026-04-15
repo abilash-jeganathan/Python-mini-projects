@@ -23,8 +23,8 @@ while True:
                     print(f'Congratulations! You guessed the number in {attempts} attempts.')
                     score += 10 - attempts  # Score based on attempts
                     break
-            except ValueError:
-                print('Invalid input. Please enter a number.')
+            except Exception as e:
+                print(e)
     elif choice == '2':
         print(f'Your current score is: {score}')
     elif choice == '3':
